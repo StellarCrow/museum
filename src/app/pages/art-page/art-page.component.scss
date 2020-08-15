@@ -1,0 +1,25 @@
+@import "setup/variables";
+.art {
+  &__background {
+    padding: 4%;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    box-sizing: border-box;
+  }
+
+  &__heading {
+    font-size: 2.5em;
+    max-width: 45%;
+  }
+
+  &__title {
+    color: $text-color--light;
+    font-family: $ff-header;
+  }
+
+  &__details {
+    padding: 4%;
+  }
+}

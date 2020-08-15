@@ -1,6 +1,12 @@
 @import "setup/variables";
 
 .modal {
+
+  &__title {
+    font-family: $ff-header;
+    font-weight: $bold;
+  }
+
   &__content {
     display: flex;
     flex-flow: row nowrap;
@@ -20,5 +26,10 @@
   &__description {
     flex: 0 1 50%;
     font-weight: $light;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
   }
 }

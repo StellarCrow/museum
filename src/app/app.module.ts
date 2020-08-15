@@ -12,6 +12,8 @@ import { ArtListComponent } from './components/art-list/art-list.component';
 import { ArtCardComponent } from './components/art-card/art-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './components/modal/modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ColorsComponent } from './components/colors/colors.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { ModalComponent } from './components/modal/modal.component';
     ArtPageComponent,
     ArtListComponent,
     ArtCardComponent,
-    ModalComponent
+    ModalComponent,
+    ColorsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+@import "setup/variables";
+.colors {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+  &__item {
+    margin-right: 2%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px $gray--light;
+    display: flex;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,1 +1,12 @@
-<p>art-page works!</p>
+<main class="art">
+  <section class="art__background" [ngStyle]="{'background-image': 'url(' + artObject.webImage.url + ')'}">
+    <div class="art__heading">
+      <h2 class="art__title">{{artObject.title}}</h2>
+    </div>
+  </section>
+  <section class="art__details">
+    <div class="art__colors">
+      <app-colors [colors]="artObject.colors"></app-colors>
+    </div>
+  </section>
+</main>
