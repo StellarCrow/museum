@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ArtService {
-  private basicObject = { webImage: {url: ''}, longTitle: '' };
+  private basicObject = { webImage: { url: '' }, headerImage: { url: '' }, longTitle: '', title: ''};
   private artSubject = new BehaviorSubject<IArtCard[]>([this.basicObject]);
   public arts$: Observable<IArtCard[]> = this.artSubject.asObservable();
   private artsList: IArtCard[];
@@ -20,7 +20,7 @@ export class ArtService {
 
   getArts(): Observable<IArtCard[]> {
     const url = API_URL;
-    return this.httpClient.get<{artObjects: []}>(url).pipe(
+    return this.httpClient.get<{ artObjects: [] }>(url).pipe(
       map((items) => {
         this.artsList = items.artObjects;
         this.artSubject.next(this.artsList);

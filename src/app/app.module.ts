@@ -11,6 +11,7 @@ import { ArtPageComponent } from './pages/art-page/art-page.component';
 import { ArtListComponent } from './components/art-list/art-list.component';
 import { ArtCardComponent } from './components/art-card/art-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     MainPageComponent,
     ArtPageComponent,
     ArtListComponent,
-    ArtCardComponent
+    ArtCardComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
