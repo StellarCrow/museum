@@ -7,4 +7,5 @@ export interface IArtCard {
   };
   longTitle: string;
   title: string;
+  objectNumber: string;
 }

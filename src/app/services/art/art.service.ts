@@ -4,12 +4,13 @@ import { IArtCard } from '../../models/art-card';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
+import { API_KEY } from '../../constants/key';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArtService {
-  private basicObject = { webImage: { url: '' }, headerImage: { url: '' }, longTitle: '', title: ''};
+  private basicObject = { webImage: { url: '' }, headerImage: { url: '' }, longTitle: '', title: '', objectNumber: ''};
   private artSubject = new BehaviorSubject<IArtCard[]>([this.basicObject]);
   public arts$: Observable<IArtCard[]> = this.artSubject.asObservable();
   private artsList: IArtCard[];
@@ -18,8 +19,8 @@ export class ArtService {
     this.getArts().subscribe();
   }
 
-  getArts(): Observable<IArtCard[]> {
-    const url = API_URL;
+  private getArts(): Observable<IArtCard[]> {
+    const url = `${API_URL}?key=${API_KEY}`;
     return this.httpClient.get<{ artObjects: [] }>(url).pipe(
       map((items) => {
         this.artsList = items.artObjects;
@@ -32,4 +33,5 @@ export class ArtService {
       })
     );
   }
+
 }

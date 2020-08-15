@@ -19,7 +19,7 @@ export class ArtCardComponent implements OnInit {
   }
 
   public openDialog(): void {
-    const dialogRef = this.dialog.open(ModalComponent, { minWidth: '60%', data: this.art });
+    const dialogRef = this.dialog.open(ModalComponent, { maxWidth: '60%', data: this.art });
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
