@@ -1,0 +1,26 @@
+.card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+
+  &__image {
+    width: inherit;
+    height: inherit;
+  }
+
+  &:hover > &__hover {
+    visibility: visible;
+  }
+
+  &__hover {
+    visibility: hidden;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    z-index: 2;
+  }
+}
