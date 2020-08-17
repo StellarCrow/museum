@@ -1,12 +1,22 @@
 <main class="art">
-  <section class="art__background" [ngStyle]="{'background-image': 'url(' + artObject.webImage.url + ')'}">
+  <section class="art__background" [ngStyle]="{'background-image': 'url(' + artObject?.imageUrl + ')'}">
     <div class="art__heading">
-      <h2 class="art__title">{{artObject.title}}</h2>
+      <h2 class="art__title">{{artObject?.title}}</h2>
     </div>
   </section>
   <section class="art__details">
-    <div class="art__colors">
-      <app-colors [colors]="artObject.colors"></app-colors>
+    <div class="art__container">
+      <div class="art__colors">
+        <app-colors [colors]="artObject?.colors"></app-colors>
+      </div>
+      <h3 class="art__name">{{artObject?.title}}, {{artObject?.author}}, {{artObject?.date}}</h3>
+      <div class="art__description">
+        {{artObject?.description}}
+      </div>
+      <div class="art__details-table">
+        <app-details-table [category]="artObject?.category" [dimensions]="artObject?.dimensions"
+                           [materials]="artObject?.materials" [tags]="artObject?.tags"></app-details-table>
+      </div>
     </div>
   </section>
 </main>

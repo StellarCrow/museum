@@ -1,0 +1,26 @@
+<div class="details">
+  <div class="details__row">
+    <div class="details__title">Category</div>
+    <div class="details__data">
+      <a routerLink="/" [queryParams]="{category: category}">{{category || ''}}</a>
+    </div>
+  </div>
+  <div class="details__row">
+    <div class="details__title">Materials</div>
+    <div class="details__data">{{materials}}</div>
+  </div>
+  <div class="details__row">
+    <div class="details__title">Dimensions</div>
+    <div class="details__data">
+      <div class="dimensions" *ngFor="let d of dimensions">
+        <i>{{d.type}}</i> : {{d.value}} {{d.unit}};
+      </div>
+    </div>
+  </div>
+  <div class="details__row">
+    <div class="details__title">Tags</div>
+    <div class="details__data">
+      <a *ngFor="let tag of tags" routerLink="/" [queryParams]="{tag: tag}">{{tag}}, </a>
+    </div>
+  </div>
+</div>

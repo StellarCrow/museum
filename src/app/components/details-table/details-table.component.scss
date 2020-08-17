@@ -1,0 +1,19 @@
+@import "setup/variables";
+.details {
+  max-width: 50%;
+  margin: 0 auto;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+  }
+
+  &__title {
+    font-weight: $semi-bold;
+  }
+
+  &__data {
+    text-align: right;
+  }
+}

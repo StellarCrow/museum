@@ -16,7 +16,12 @@ export interface IArtObject {
     hex: string
   }];
   description: string;
-  category: string;
   materials: [string];
   principalMaker: string;
+  classification: {
+    iconClassDescription: [string]
+  };
+  acquisition: {
+    method: string
+  };
 }

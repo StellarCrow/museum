@@ -19,7 +19,25 @@
     font-family: $ff-header;
   }
 
-  &__details {
-    padding: 4%;
+  &__container {
+    padding: 4% 10%;
+  }
+
+  &__colors {
+    margin-bottom: 5%;
+  }
+
+  &__name {
+    font-weight: $bold;
+    font-style: italic;
+    font-family: $ff-header;
+    text-align: center;
+    margin-bottom: 4%;
+  }
+
+  &__description {
+    text-align: justify;
+    font-weight: $light;
+    margin-bottom: 5%;
   }
 }

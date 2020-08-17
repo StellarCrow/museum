@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ColorsComponent } from './components/colors/colors.component';
+import { DetailsTableComponent } from './components/details-table/details-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ColorsComponent } from './components/colors/colors.component';
     ArtListComponent,
     ArtCardComponent,
     ModalComponent,
-    ColorsComponent
+    ColorsComponent,
+    DetailsTableComponent
   ],
   imports: [
     BrowserModule,

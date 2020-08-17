@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtObjectService } from '../../services/art-object/art-object.service';
-import { ActivatedRoute } from '@angular/router';
-import { IArtObject } from '../../models/art-object';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IArtItem } from '../../models/art-item';
 
 @Component({
   selector: 'app-art-page',
@@ -10,9 +10,9 @@ import { IArtObject } from '../../models/art-object';
 })
 export class ArtPageComponent implements OnInit {
   private id: string;
-  private artObject: IArtObject = null;
+  public artObject: IArtItem;
 
-  constructor(private artObjectService: ArtObjectService, private route: ActivatedRoute) {
+  constructor(private artObjectService: ArtObjectService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -21,6 +21,9 @@ export class ArtPageComponent implements OnInit {
     });
     this.artObjectService.getFullObject(this.id).subscribe((data) => {
       this.artObject = data;
+    }, error => {
+      // this.router.navigate(null);
+      console.log(error);
     });
   }
 
