@@ -17,7 +17,7 @@ export class ArtObjectService {
 
   public getFullObject(objectKey): Observable<IArtItem> {
     const url = `${API_URL}/${objectKey}?key=${API_KEY}`;
-    return this.httpClient.get<{artObject: IArtObject}>(url).pipe(
+    return this.httpClient.get<{ artObject: IArtObject }>(url).pipe(
       map(item => {
           return {
             title: item.artObject.title,
@@ -42,14 +42,14 @@ export class ArtObjectService {
 
   public getDescription(id): Observable<string> {
     const url = `${API_URL}/${id}?key=${API_KEY}`;
-    return this.httpClient.get<{ artObject: {description} }>(url).pipe(
+    return this.httpClient.get<{ artObject: { description } }>(url).pipe(
       map(item => {
           return item.artObject.description;
         }
       ),
       catchError((err) => {
         console.log(err);
-        return [];
+        return null;
       })
     );
   }

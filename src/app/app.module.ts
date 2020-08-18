@@ -17,6 +17,7 @@ import { ColorsComponent } from './components/colors/colors.component';
 import { DetailsTableComponent } from './components/details-table/details-table.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SortingComponent } from './components/sorting/sorting.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModalComponent,
     ColorsComponent,
     DetailsTableComponent,
-    SearchComponent
+    SearchComponent,
+    SortingComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
 
   public onSubmit(): void {
     const query = this.formSearch.value.query;
-    this.artService.searchArt(query).subscribe();
+    this.artService.searchArt(query);
   }
 
 }

@@ -20,7 +20,11 @@
     justify-content: space-between;
   }
 
+  &__filter {
+    flex: 0 1 25%;
+  }
+
   &__search {
-    min-width: 70%;
+    flex: 0 1 70%;
   }
 }
