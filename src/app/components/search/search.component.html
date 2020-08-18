@@ -1,0 +1,7 @@
+<form class="search" [formGroup]="formSearch" (submit)="onSubmit()">
+  <mat-form-field class="search__field" appearance="outline">
+    <mat-label>Search</mat-label>
+    <input [formControlName]="'query'" matInput placeholder="Flowers...">
+  </mat-form-field>
+  <button type="submit" class="search__button" mat-flat-button color="primary" [disabled]="!formSearch.valid">Search</button>
+</form>

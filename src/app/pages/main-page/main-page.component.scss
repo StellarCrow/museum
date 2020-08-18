@@ -12,4 +12,15 @@
   &__title {
     font-family: $ff-header;
   }
+
+  &__options {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__search {
+    min-width: 70%;
+  }
 }

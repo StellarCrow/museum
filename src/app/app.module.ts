@@ -15,6 +15,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ColorsComponent } from './components/colors/colors.component';
 import { DetailsTableComponent } from './components/details-table/details-table.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { DetailsTableComponent } from './components/details-table/details-table.
     ArtCardComponent,
     ModalComponent,
     ColorsComponent,
-    DetailsTableComponent
+    DetailsTableComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { DetailsTableComponent } from './components/details-table/details-table.
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
