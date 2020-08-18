@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArtService } from '../../services/art/art.service';
 
@@ -10,7 +10,9 @@ import { ArtService } from '../../services/art/art.service';
 export class SearchComponent implements OnInit {
   public formSearch: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private artService: ArtService) {
+  @Output() onSearch = new EventEmitter<string>();
+
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class SearchComponent implements OnInit {
 
   public onSubmit(): void {
     const query = this.formSearch.value.query;
-    this.artService.searchArt(query);
+    this.onSearch.emit(query);
   }
 
 }

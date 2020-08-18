@@ -18,6 +18,7 @@ import { DetailsTableComponent } from './components/details-table/details-table.
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SortingComponent } from './components/sorting/sorting.component';
+import { CountPerPageComponent } from './components/count-per-page/count-per-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SortingComponent } from './components/sorting/sorting.component';
     ColorsComponent,
     DetailsTableComponent,
     SearchComponent,
-    SortingComponent
+    SortingComponent,
+    CountPerPageComponent
   ],
   imports: [
     BrowserModule,

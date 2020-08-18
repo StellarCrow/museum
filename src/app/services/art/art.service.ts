@@ -14,6 +14,7 @@ export class ArtService {
   private artSubject = new BehaviorSubject<IArtCard[]>([this.basicObject]);
   private search = new BehaviorSubject<string>('');
   private sorting = new BehaviorSubject<string>('');
+  private amount = new BehaviorSubject<number>(10);
   public arts$: Observable<IArtCard[]> = this.artSubject.asObservable();
   private artsList: IArtCard[];
 
@@ -25,9 +26,10 @@ export class ArtService {
   private initArts(): void {
     const search$ = this.search.asObservable();
     const sort$ = this.sorting.asObservable();
-    combineLatest([sort$, search$]).pipe(
-      map(([sortQuery, searchQuery]) => {
-        const url = this.buildUrl(sortQuery, searchQuery);
+    const amount$ = this.amount.asObservable();
+    combineLatest([sort$, search$, amount$]).pipe(
+      map(([sortQuery, searchQuery, amountNum]) => {
+        const url = this.buildUrl(sortQuery, searchQuery, amountNum);
         return this.sendRequestToServer(url).subscribe(data => {
           this.artSubject.next(data);
         });
@@ -50,8 +52,8 @@ export class ArtService {
     );
   }
 
-  private buildUrl(sort, search): string {
-    return `${API_URL}?key=${API_KEY}&imgonly=true&q=${search}&s=${sort}`;
+  private buildUrl(sort: string, search: string, amount: number): string {
+    return `${API_URL}?key=${API_KEY}&imgonly=true&q=${search}&s=${sort}&ps=${amount}`;
   }
 
   private sendRequestToServer(url): Observable<IArtCard[]> {
@@ -64,12 +66,16 @@ export class ArtService {
     );
   }
 
-  public searchArt(query): void {
+  public searchArt(query: string): void {
     this.search.next(query);
   }
 
-  public sort(query): void {
+  public sort(query: string): void {
     this.sorting.next(query);
+  }
+
+  public setAmount(num: number) {
+    this.amount.next(num);
   }
 
 }

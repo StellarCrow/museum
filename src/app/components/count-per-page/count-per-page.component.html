@@ -1,0 +1,6 @@
+<div class="count">
+  <span *ngFor="let num of numbers; let i = index">
+    <button type="button" class="count__button" (click)="changeAmount(num)" mat-button>{{num}}</button>
+    <span *ngIf="i < numbers.length - 1">|</span>
+  </span>
+</div>

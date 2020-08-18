@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { ArtService } from '../../services/art/art.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
@@ -8,12 +7,10 @@ import { MatSelectChange } from '@angular/material/select';
   styleUrls: ['./sorting.component.scss']
 })
 export class SortingComponent {
-  constructor(private artService: ArtService) {
-
-  }
+  @Output() onOrderChange = new EventEmitter<string>();
 
   onChange(event: MatSelectChange): void {
-    this.artService.sort(event.value);
+    this.onOrderChange.emit(event.value);
   }
 
 }
