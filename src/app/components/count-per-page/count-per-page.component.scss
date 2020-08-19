@@ -1,0 +1,11 @@
+@import "setup/variables";
+
+.count {
+  &__button {
+    font-weight: $regular;
+  }
+
+  &__button--selected {
+    font-weight: $bold;
+  }
+}

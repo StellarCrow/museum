@@ -23,4 +23,8 @@ export class MainPageComponent {
     this.artService.setAmount(num);
   }
 
+  public changePage(num: number): void {
+    this.artService.setPage(num);
+  }
+
 }

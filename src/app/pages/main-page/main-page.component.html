@@ -14,7 +14,9 @@
     <app-art-list></app-art-list>
   </div>
   <div class="main__footer">
-    <div class="main__pagination"></div>
+    <div class="main__pagination">
+      <app-pagination (onChangePage)="changePage($event)"></app-pagination>
+    </div>
     <div class="main__count">
       <app-count-per-page (onChangeAmount)="changeAmount($event)"></app-count-per-page>
     </div>

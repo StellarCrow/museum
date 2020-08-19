@@ -19,6 +19,7 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SortingComponent } from './components/sorting/sorting.component';
 import { CountPerPageComponent } from './components/count-per-page/count-per-page.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CountPerPageComponent } from './components/count-per-page/count-per-pag
     DetailsTableComponent,
     SearchComponent,
     SortingComponent,
-    CountPerPageComponent
+    CountPerPageComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

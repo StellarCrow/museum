@@ -1,5 +1,11 @@
-<ul class="list">
-  <li *ngFor="let art of artList | async" class="list__item">
-    <app-art-card [art]="art"></app-art-card>
-  </li>
-</ul>
+<div *ngIf="(artList | async) as arts">
+  <ul class="list" *ngIf="arts.length > 0; else empty">
+    <li *ngFor="let art of arts"  class="list__item">
+      <app-art-card [art]="art"></app-art-card>
+    </li>
+  </ul>
+  <ng-template #empty>
+    <h3>There is nothing to show.</h3>
+  </ng-template>
+</div>
+

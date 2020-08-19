@@ -1,0 +1,31 @@
+<div class="pagination-wrapper">
+  <ul *ngIf="totalPages" class="pagination">
+    <li [ngClass]="{disabled: currentPage === 1}" class="pagination__item">
+      <a class="pagination__link" routerLink="/" (click)="setPage(1)" [queryParams]="{p: 1}">
+        <mat-icon class="icon icon--reverse">double_arrow</mat-icon>
+      </a>
+    </li>
+    <li [ngClass]="{disabled: currentPage === 1}" class="pagination__item">
+      <a class="pagination__link" routerLink="/" (click)="setPage(currentPage - 1)"
+         [queryParams]="{p: currentPage - 1}">
+        <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+      </a>
+    </li>
+    <li *ngFor="let page of paginationPage" [ngClass]="{active: currentPage === page}" class="pagination__item">
+      <a (click)="setPage(page)" routerLink="/" [queryParams]="{p: page}" class="pagination__link">{{page}}</a>
+    </li>
+
+    <li [ngClass]="{disabled: currentPage === paginationPage.length - 1}" class="pagination__item">
+      <a class="pagination__link" routerLink="/" (click)="setPage(currentPage + 1)"
+         [queryParams]="{p: currentPage + 1}">
+        <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+      </a>
+    </li>
+
+    <li [ngClass]="{disabled: currentPage === totalPages - 1}" class="pagination__item">
+      <a class="pagination__link" routerLink="/" (click)="setPage(totalPages - 1)" [queryParams]="{p: totalPages - 1}">
+        <mat-icon class="icon">double_arrow</mat-icon>
+      </a>
+    </li>
+  </ul>
+</div>

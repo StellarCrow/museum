@@ -1,0 +1,39 @@
+@import "setup/variables";
+
+.pagination {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    margin-right: 0.5em;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.active {
+      color: $primary-color;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: $gray;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.icon {
+  &--reverse {
+    transform: scaleX(-1);
+  }
+}
