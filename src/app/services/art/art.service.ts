@@ -86,4 +86,12 @@ export class ArtService {
     this.category.next(category);
   }
 
+  public showFavorites(list: IArtCard[], show: boolean): void {
+    if (show) {
+      this.artSubject.next(list);
+    } else {
+      this.search.next('');
+    }
+  }
+
 }

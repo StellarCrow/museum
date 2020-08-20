@@ -1,0 +1,13 @@
+@import "setup/variables";
+
+.favorites {
+  &__button {
+    background: $primary-color;
+  }
+
+  &__button.active {
+    background: $secondary-color;
+    box-shadow: 0 0 5px $gray--light;
+    transition: 0.3s ease;
+  }
+}
