@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit {
       this.search = data;
     });
     this.activatedRoute.queryParams.subscribe(val => {
-      this.artService.setCategory(val.category);
+      this.artService.setCategory(val.q);
     });
   }
 

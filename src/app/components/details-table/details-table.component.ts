@@ -1,13 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-details-table',
   templateUrl: './details-table.component.html',
   styleUrls: ['./details-table.component.scss']
 })
-export class DetailsTableComponent implements OnInit {
-  public dimensionsString = '';
-
+export class DetailsTableComponent {
   @Input() category: string;
   @Input() tags: [string];
   @Input() materials: [string];
@@ -17,8 +15,5 @@ export class DetailsTableComponent implements OnInit {
     value: string
   }];
 
-  ngOnInit(): void {
-
-  }
 
 }

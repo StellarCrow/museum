@@ -21,11 +21,5 @@
         <mat-icon class="icon">keyboard_arrow_right</mat-icon>
       </a>
     </li>
-
-    <li [ngClass]="{disabled: currentPage === totalPages - 1}" class="pagination__item">
-      <a class="pagination__link" routerLink="/" (click)="setPage(totalPages - 1)" [queryParams]="{p: totalPages - 1}">
-        <mat-icon class="icon">double_arrow</mat-icon>
-      </a>
-    </li>
   </ul>
 </div>

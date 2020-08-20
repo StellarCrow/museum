@@ -50,7 +50,7 @@ export class ArtService {
     let url = `${API_URL}?key=${API_KEY}&imgonly=true&q=${search}&s=${sort}&ps=${amount}&p=${page}`;
     console.log(category);
     if (category) {
-      url += `&method=${category}`;
+      url += `&q=${category}`;
     }
     return url;
   }

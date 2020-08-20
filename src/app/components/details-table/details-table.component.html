@@ -2,7 +2,7 @@
   <div class="details__row">
     <div class="details__title">Category</div>
     <div class="details__data">
-      <a routerLink="/" [queryParams]="{category: category}">{{category || ''}}</a>
+      <a routerLink="/" [queryParams]="{q: category}">{{category || ''}}</a>
     </div>
   </div>
   <div class="details__row">
@@ -20,7 +20,7 @@
   <div class="details__row">
     <div class="details__title">Tags</div>
     <div class="details__data">
-      <a *ngFor="let tag of tags" routerLink="/" [queryParams]="{tag: tag}">{{tag}}, </a>
+      <a *ngFor="let tag of tags" routerLink="/" [queryParams]="{q: tag}">{{tag}}, </a>
     </div>
   </div>
 </div>
