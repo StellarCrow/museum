@@ -1,18 +1,30 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FavoritesService } from '../../services/favorites/favorites.service';
+import { IArtCard } from '../../models/art-card';
 
 @Component({
   selector: 'app-favorite-button',
   templateUrl: './favorite-button.component.html',
   styleUrls: ['./favorite-button.component.scss']
 })
-export class FavoriteButtonComponent {
-  @Input() isInList: boolean;
+export class FavoriteButtonComponent implements OnInit {
+  @Input() art: IArtCard;
+  public isInList: boolean;
 
-  @Output() shouldAddToList = new EventEmitter<boolean>();
+  constructor(private favoriteService: FavoritesService) {
+  }
 
-  public addToList(): void {
+  ngOnInit(): void {
+    this.isInList = this.favoriteService.isInFavorites(this.art.objectNumber);
+  }
+
+  public manageFavList(): void {
     this.isInList = !this.isInList;
-    this.shouldAddToList.emit(this.isInList);
+    if (this.isInList) {
+      this.favoriteService.addToFavorites(this.art);
+    } else {
+      this.favoriteService.removeFromFavorites(this.art.objectNumber);
+    }
   }
 
 }

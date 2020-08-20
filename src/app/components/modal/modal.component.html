@@ -10,10 +10,12 @@
   </mat-dialog-content>
   <mat-dialog-actions class="modal__actions-wrapper">
     <div class="modal__fav">
-      <app-favorite-button (shouldAddToList)="manageFavList($event)" [isInList]="isInList"></app-favorite-button>
+      <app-favorite-button [art]="art"></app-favorite-button>
     </div>
     <div class="modal__actions">
-      <button type="button" [routerLink]="'art/' + art.objectNumber" [mat-dialog-close]="true" mat-flat-button color="primary">View details</button>
+      <button type="button" [routerLink]="'art/' + art.objectNumber" [mat-dialog-close]="true" mat-flat-button
+              color="primary">View details
+      </button>
       <button type="button" [mat-dialog-close]="true" mat-flat-button color="warn">Close</button>
     </div>
   </mat-dialog-actions>

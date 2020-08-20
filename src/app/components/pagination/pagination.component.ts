@@ -28,7 +28,6 @@ export class PaginationComponent implements OnInit {
         this.currentPage = page;
         this.totalPages = Math.floor(count / amount);
         this.changePaginationPage();
-        console.log(this.totalPages);
       })
     ).subscribe();
   }
