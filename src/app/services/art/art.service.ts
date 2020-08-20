@@ -48,7 +48,6 @@ export class ArtService {
 
   private buildUrl(sort: string, search: string, amount: number, page: number, category: string): string {
     let url = `${API_URL}?key=${API_KEY}&imgonly=true&q=${search}&s=${sort}&ps=${amount}&p=${page}`;
-    console.log(category);
     if (category) {
       url += `&q=${category}`;
     }
@@ -84,6 +83,14 @@ export class ArtService {
 
   public setCategory(category: string) {
     this.category.next(category);
+  }
+
+  public showFavorites(list: IArtCard[], show: boolean): void {
+    if (show) {
+      this.artSubject.next(list);
+    } else {
+      this.search.next('');
+    }
   }
 
 }

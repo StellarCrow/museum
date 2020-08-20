@@ -20,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SortingComponent } from './components/sorting/sorting.component';
 import { CountPerPageComponent } from './components/count-per-page/count-per-page.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
+import { ShowFavoritesButtonComponent } from './components/show-favorites-button/show-favorites-button.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     SearchComponent,
     SortingComponent,
     CountPerPageComponent,
-    PaginationComponent
+    PaginationComponent,
+    FavoriteButtonComponent,
+    ShowFavoritesButtonComponent
   ],
   imports: [
     BrowserModule,

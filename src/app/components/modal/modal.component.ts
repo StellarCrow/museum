@@ -23,5 +23,4 @@ export class ModalComponent implements OnInit {
       this.description = 'There is no description provided.';
     });
   }
-
 }
