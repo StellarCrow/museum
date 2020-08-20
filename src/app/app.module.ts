@@ -11,6 +11,15 @@ import { ArtPageComponent } from './pages/art-page/art-page.component';
 import { ArtListComponent } from './components/art-list/art-list.component';
 import { ArtCardComponent } from './components/art-card/art-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ColorsComponent } from './components/colors/colors.component';
+import { DetailsTableComponent } from './components/details-table/details-table.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SortingComponent } from './components/sorting/sorting.component';
+import { CountPerPageComponent } from './components/count-per-page/count-per-page.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +28,24 @@ import { HttpClientModule } from '@angular/common/http';
     MainPageComponent,
     ArtPageComponent,
     ArtListComponent,
-    ArtCardComponent
+    ArtCardComponent,
+    ModalComponent,
+    ColorsComponent,
+    DetailsTableComponent,
+    SearchComponent,
+    SortingComponent,
+    CountPerPageComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

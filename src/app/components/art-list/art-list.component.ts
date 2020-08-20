@@ -15,7 +15,6 @@ export class ArtListComponent implements OnInit {
 
   ngOnInit(): void {
     this.artList = this.artService.arts$;
-    console.log(this.artList);
   }
 
 }

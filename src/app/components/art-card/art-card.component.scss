@@ -1,7 +1,10 @@
+@import "setup/variables";
+
 .card {
   position: relative;
   width: 200px;
   height: 200px;
+  cursor: pointer;
 
   &__image {
     width: inherit;
@@ -9,11 +12,11 @@
   }
 
   &:hover > &__hover {
-    visibility: visible;
+    display: block;
   }
 
   &__hover {
-    visibility: hidden;
+    display: none;
 
     position: absolute;
     left: 0;
@@ -21,6 +24,13 @@
     bottom: 0;
     height: 50%;
     width: 100%;
+    padding: 0.3em 0.2em;
     z-index: 2;
+    background: rgba(#000000, 0.5);
+    transition: 0.3s ease;
+    color: $text-color--light;
+    font-size: 0.8em;
+    font-weight: $light;
+    box-sizing: border-box;
   }
 }

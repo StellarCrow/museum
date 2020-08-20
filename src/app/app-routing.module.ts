@@ -15,8 +15,12 @@ const routes: Routes = [
     component: ArtPageComponent
   },
   {
-    path: '**',
+    path: '404',
     component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/404'
   }
 ];
 

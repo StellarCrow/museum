@@ -45,3 +45,4 @@ testem.log
 .DS_Store
 Thumbs.db
 /src/app/constants/key.ts
+!/src/app/constants/constants.ts

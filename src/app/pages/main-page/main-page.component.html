@@ -1,1 +1,25 @@
-<app-art-list></app-art-list>
+<main class="main">
+  <div class="main__heading">
+    <h1 class="main__title">Rijksmuseum</h1>
+  </div>
+  <div class="main__options">
+    <div class="main__filter">
+      <app-ordering (onOrderChange)="sortArts($event)"></app-ordering>
+    </div>
+    <div class="main__search">
+      <app-search (onSearch)="searchArts($event)" [query]="search"></app-search>
+    </div>
+  </div>
+  <div class="main__content">
+    <app-art-list></app-art-list>
+  </div>
+  <div class="main__footer">
+    <div class="main__pagination">
+      <app-pagination (onChangePage)="changePage($event)"></app-pagination>
+    </div>
+    <div class="main__count">
+      <app-count-per-page (onChangeAmount)="changeAmount($event)" [selectedNum]="amount"></app-count-per-page>
+    </div>
+  </div>
+</main>
+

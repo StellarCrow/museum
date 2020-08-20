@@ -1,0 +1,35 @@
+@import "setup/variables";
+
+.modal {
+
+  &__title {
+    font-family: $ff-header;
+    font-weight: $bold;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  &__image-container {
+   flex: 0 1 45%;
+  }
+
+  &__image {
+    height: 80%;
+    width: auto;
+  }
+
+  &__description {
+    flex: 0 1 50%;
+    font-weight: $light;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}
