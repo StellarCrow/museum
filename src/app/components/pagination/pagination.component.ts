@@ -34,7 +34,8 @@ export class PaginationComponent implements OnInit {
 
   private changePaginationPage() {
     this.paginationPage = [];
-    const endIndex = (this.currentPage + this.maxCount);
+    const diff = this.totalPages - this.currentPage + 1;
+    const endIndex = diff > 10 ? (this.currentPage + this.maxCount) : this.totalPages + 1;
     for (let i = this.currentPage; i <= endIndex; i++) {
       this.paginationPage.push(i);
     }
