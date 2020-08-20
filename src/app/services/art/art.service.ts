@@ -3,7 +3,7 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { IArtCard } from '../../models/art-card';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { API_KEY } from '../../constants/key';
 import { DEFAULT_COUNT_PER_PAGE } from '../../constants/constants';
 
@@ -16,11 +16,13 @@ export class ArtService {
   private search = new BehaviorSubject<string>('');
   private sorting = new BehaviorSubject<string>('');
   private amount = new BehaviorSubject<number>(DEFAULT_COUNT_PER_PAGE);
-  private page = new BehaviorSubject<number>(0);
+  private page = new BehaviorSubject<number>(1);
+  private category = new BehaviorSubject<string>('');
   private totalCount = new BehaviorSubject<number>(0);
   public totalCount$ = this.totalCount.asObservable();
   public amount$ = this.amount.asObservable();
   public page$ = this.page.asObservable();
+  public search$ = this.search.asObservable();
   public arts$: Observable<IArtCard[]> = this.artSubject.asObservable();
   private artsList: IArtCard[];
 
@@ -33,9 +35,10 @@ export class ArtService {
     const sort$ = this.sorting.asObservable();
     const amount$ = this.amount.asObservable();
     const page$ = this.page.asObservable();
-    combineLatest([sort$, search$, amount$, page$]).pipe(
-      map(([sortQuery, searchQuery, amountNum, pageNum]) => {
-        const url = this.buildUrl(sortQuery, searchQuery, amountNum, pageNum);
+    const category$ = this.category.asObservable();
+    combineLatest([sort$, search$, amount$, page$, category$]).pipe(
+      map(([sortQuery, searchQuery, amountNum, pageNum, category]) => {
+        const url = this.buildUrl(sortQuery, searchQuery, amountNum, pageNum, category);
         return this.sendRequestToServer(url).subscribe(data => {
           this.artSubject.next(data);
         });
@@ -43,8 +46,13 @@ export class ArtService {
     ).subscribe();
   }
 
-  private buildUrl(sort: string, search: string, amount: number, page: number): string {
-    return `${API_URL}?key=${API_KEY}&imgonly=true&q=${search}&s=${sort}&ps=${amount}&p=${page}`;
+  private buildUrl(sort: string, search: string, amount: number, page: number, category: string): string {
+    let url = `${API_URL}?key=${API_KEY}&imgonly=true&q=${search}&s=${sort}&ps=${amount}&p=${page}`;
+    console.log(category);
+    if (category) {
+      url += `&method=${category}`;
+    }
+    return url;
   }
 
   private sendRequestToServer(url): Observable<IArtCard[]> {
@@ -72,6 +80,10 @@ export class ArtService {
 
   public setPage(num: number) {
     this.page.next(num);
+  }
+
+  public setCategory(category: string) {
+    this.category.next(category);
   }
 
 }

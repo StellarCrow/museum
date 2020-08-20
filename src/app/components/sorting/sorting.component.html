@@ -3,7 +3,8 @@
     <mat-label>Order By</mat-label>
     <mat-select (selectionChange)="onChange($event)">
       <mat-option value="relevance">Relevance</mat-option>
-      <mat-option value="chronologic">Chronologic</mat-option>
+      <mat-option value="chronologic">Chronologic (older first)</mat-option>
+      <mat-option value="achronologic">Chronologic (newest first)</mat-option>
       <mat-option value="artist">Artist</mat-option>
     </mat-select>
   </mat-form-field>

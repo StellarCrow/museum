@@ -7,7 +7,7 @@
       <app-ordering (onOrderChange)="sortArts($event)"></app-ordering>
     </div>
     <div class="main__search">
-      <app-search (onSearch)="searchArts($event)"></app-search>
+      <app-search (onSearch)="searchArts($event)" [query]="search"></app-search>
     </div>
   </div>
   <div class="main__content">
@@ -18,7 +18,7 @@
       <app-pagination (onChangePage)="changePage($event)"></app-pagination>
     </div>
     <div class="main__count">
-      <app-count-per-page (onChangeAmount)="changeAmount($event)"></app-count-per-page>
+      <app-count-per-page (onChangeAmount)="changeAmount($event)" [selectedNum]="amount"></app-count-per-page>
     </div>
   </div>
 </main>

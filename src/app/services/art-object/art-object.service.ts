@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { API_URL } from '../../../environments/environment';
 import { API_KEY } from '../../constants/key';
 import { catchError, map } from 'rxjs/operators';
@@ -35,12 +35,12 @@ export class ArtObjectService {
       ),
       catchError((err) => {
         console.log(err);
-        return [];
+        return throwError(err);
       })
     );
   }
 
-  public getDescription(id): Observable<string> {
+  public getDescription(id): Observable<string | never> {
     const url = `${API_URL}/${id}?key=${API_KEY}`;
     return this.httpClient.get<{ artObject: { description } }>(url).pipe(
       map(item => {
@@ -48,8 +48,7 @@ export class ArtObjectService {
         }
       ),
       catchError((err) => {
-        console.log(err);
-        return null;
+        return throwError(err);
       })
     );
   }

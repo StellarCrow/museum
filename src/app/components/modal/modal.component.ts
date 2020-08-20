@@ -19,6 +19,8 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
     this.artObjectService.getDescription(this.art.objectNumber).subscribe(data => {
       this.description = data || 'There is no description provided.';
+    }, error => {
+      this.description = 'There is no description provided.';
     });
   }
 

@@ -22,7 +22,7 @@ export class ArtPageComponent implements OnInit {
     this.artObjectService.getFullObject(this.id).subscribe((data) => {
       this.artObject = data;
     }, error => {
-      // this.router.navigate(null);
+      this.router.navigate(['404']);
       console.log(error);
     });
   }
